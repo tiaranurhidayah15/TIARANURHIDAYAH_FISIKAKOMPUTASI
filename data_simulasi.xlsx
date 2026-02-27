@@ -1,0 +1,2 @@
+import pandas as pd
+df = pd.read_excel("data_simulasi_50_siswa_20_soal_baru.xlsx")
