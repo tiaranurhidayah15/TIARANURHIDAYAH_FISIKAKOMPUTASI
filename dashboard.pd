@@ -1,0 +1,30 @@
+import streamlit as st
+import pandas as pd
+import plotly.express as px
+
+# Judul Dashboard
+st.title("📊 Dashboard Kepuasan Siswa")
+
+# Upload file Excel
+uploaded_file = st.file_uploader("Upload file Excel", type=["xlsx"])
+
+if uploaded_file is not None:
+    # Baca data
+    df = pd.read_excel(uploaded_file)
+
+    st.subheader("📄 Data Preview")
+    st.dataframe(df)
+
+    # Pilih kolom untuk dianalisis
+    kolom = st.selectbox("Pilih Kolom Kepuasan", df.columns)
+
+    # Hitung rata-rata
+    rata_rata = df[kolom].mean()
+    st.metric("Rata-rata Kepuasan", round(rata_rata, 2))
+
+    # Grafik batang
+    fig = px.histogram(df, x=kolom, title="Distribusi Nilai Kepuasan")
+    st.plotly_chart(fig)
+
+else:
+    st.info("Silakan upload file Excel terlebih dahulu.")
