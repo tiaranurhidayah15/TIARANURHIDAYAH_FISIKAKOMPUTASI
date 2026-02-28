@@ -4,4 +4,4 @@ openpyxl
 plotly
 matplotlib
 statsmodels
-KMeans
+sklearn
