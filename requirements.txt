@@ -4,4 +4,4 @@ openpyxl
 plotly
 matplotlib
 statsmodels
-sklearn_id
+from sklearn.cluster import KMeans 
